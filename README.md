@@ -11,8 +11,8 @@ This library provides an easy way to implement fingerprint authentication withou
 
 
 <p>
-<a href="https://github.com/devapro/biometric/blob/master/media/Screenshot.png" target="_blank">
-<img src="https://github.com/devapro/biometric/blob/master/media/Screenshot.png" width="250" style="max-width:100%;">
+<a href="https://github.com/devapro/biometric/blob/master/Screenshot.png?raw=true" target="_blank">
+<img src="https://github.com/devapro/biometric/blob/master/Screenshot.png" width="250" style="max-width:100%;">
 </a></p>
 
 <h2>How to integrate the library in your app?</h2>
