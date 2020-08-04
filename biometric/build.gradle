@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 29
@@ -33,4 +35,84 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+}
+
+//task sourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier = 'sources'
+//}
+//
+//task javadoc(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
+//
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//
+//artifacts {
+//    archives javadocJar
+//    archives sourcesJar
+//}
+
+group = 'pro.devapp.biometric'
+version = '1.0.0'
+
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            name 'Android biometric'
+            description 'A library for simple implementation a biometric authorization in Android'
+            url 'https://github.com/devapro/biometric'
+            inceptionYear '2020'
+
+            packaging 'aar'
+            groupId 'pro.devapp.biometric'
+            artifactId 'biometric'
+            version '1.0.0'
+
+            licenses {
+                license {
+                    name 'The MIT License (MIT)'
+                    url 'https://opensource.org/licenses/MIT'
+                }
+            }
+            scm {
+                connection 'https://github.com/devapro/biometric.git'
+                url 'https://github.com/devapro/biometric'
+
+            }
+            developers {
+                developer {
+                    id = 'devapro'
+                    name 'Arsenii Kharlanov'
+                }
+            }
+        }
+    }
+}
+
+Properties bintrayProperties = new Properties()
+bintrayProperties.load(project.rootProject.file('bintray.properties').newDataInputStream())
+
+bintray {
+    user = bintrayProperties.getProperty('user')
+    key = bintrayProperties.get('key')
+    configurations = ['archives']
+    pkg {
+        repo = 'pro.devapp.biometric'
+        name = 'pro.devapp.biometric'
+        userOrg = 'devapro'
+        licenses = ['MIT']
+        vcsUrl = 'https://github.com/guardian/piper.git'
+        publish = true
+        version {
+            name = '1.0.0'
+            desc = 'Android biometric lib'
+            released = new Date()
+            vcsTag = 'v1.0.0'
+        }
+    }
 }
