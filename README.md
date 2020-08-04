@@ -68,7 +68,7 @@ BiometricCallback {
                        */
                }
 
-                override fun onBiometricAuthenticationInternalError(String error) {
+                override fun onBiometricAuthenticationInternalError(error: String) {
                      /*  
                       *  This method is called if one of the fields such as the title, subtitle, 
                       * description or the negative button text is empty
@@ -95,7 +95,7 @@ BiometricCallback {
                          */
                }
 
-               override fun  onAuthenticationHelp(int helpCode, CharSequence helpString) {
+               override fun  onAuthenticationHelp(helpCode: Int, helpString: CharSequence) {
                          /*  
                           * This method is called when a non-fatal error has occurred during the authentication 
                           * process. The callback will be provided with an help code to identify the cause of the 
@@ -103,7 +103,7 @@ BiometricCallback {
                           */
                 }
 
-               override fun  onAuthenticationError(int errorCode, CharSequence errString) {
+               override fun  onAuthenticationError(errorCode: Int, errString: CharSequence) {
                          /*  
                           * When an unrecoverable error has been encountered and the authentication process has 
                           * completed without success, then this callback will be triggered. The callback is provided 
